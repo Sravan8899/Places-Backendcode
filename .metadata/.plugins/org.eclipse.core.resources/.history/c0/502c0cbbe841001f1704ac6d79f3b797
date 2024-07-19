@@ -1,0 +1,5 @@
+package com.visitRepo;
+
+public interface Loginrepo {
+
+}

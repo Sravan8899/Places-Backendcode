@@ -1,0 +1,18 @@
+package com.visit.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.visit.model.addnewplacemodel;
+import com.visit.repo.addplacerepo;
+
+public class addservice {
+	
+	@Autowired
+	addplacerepo addrepo;
+
+	public addnewplacemodel addMethod2(addnewplacemodel places) {
+		// TODO Auto-generated method stub
+		return addrepo.save(places);
+	}
+
+}

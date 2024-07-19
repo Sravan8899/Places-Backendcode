@@ -1,0 +1,73 @@
+package Fourwheller.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.apache.tomcat.util.openssl.openssl_h;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import Fourwheller.Repo.Loginservicerepo;
+import Fourwheller.entity.Loginuser;
+
+
+@Service
+public class Loginservice {
+	@Autowired
+	Loginservicerepo loginrepo;
+
+	public Loginuser adduserdetail(Loginuser details) {
+		// TODO Auto-generated method stub
+		return loginrepo.save(details);
+	}
+
+	public List<Loginuser> getdetailsdata() {
+		// TODO Auto-generated method stub
+		return loginrepo.findAll();
+	}
+	
+	public String deleteusers(String user) {
+		
+		// TODO Auto-generated method stub
+		boolean isdelete = false;
+		try {
+			
+		Loginuser deleteuser=loginrepo.findById(user).get();
+		if(deleteuser!=null) {
+			
+			loginrepo.deleteById(user);
+			isdelete = true;
+		}
+		}
+		catch(Exception e) {
+			
+			isdelete=false;
+		}
+		if(isdelete== true) {
+			return "deleted";
+		}else
+			return "not found";
+		
+	}
+
+
+	public Boolean loggedin1(Loginuser customer) {
+		// TODO Auto-generated method stub
+		String details1=customer.getUsername();
+		String details2=customer.getPassword();
+		Loginuser details3 =loginrepo.findById(details1).get();
+				
+				
+		System.out.println(details2);
+		if((details1==details3.getUsername()) && (details2==details3.getPassword()))
+			return true;
+		else
+			return false;
+		
+		
+	}
+
+	
+	
+}

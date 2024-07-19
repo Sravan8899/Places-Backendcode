@@ -1,0 +1,35 @@
+package com.visit.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.visit.Service.loginservice;
+import com.visit.model.loginmodel;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+@RestController
+@CrossOrigin("http://localhost:8080/verify?user1=${uemail}&pass1=${pname}")
+public class logincontroller {
+	
+	@Autowired
+	loginservice logservice;
+	
+	@PostMapping("/adduser")
+	public loginmodel adduser1(@RequestBody loginmodel details) {
+		
+		
+		return logservice.adduser2(details);
+	}
+	
+	@GetMapping("/verify")
+	public boolean gedetails1(@RequestBody loginmodel ver1) {
+		return logservice.gedetails2(ver1);
+	}
+	
+	
+
+}

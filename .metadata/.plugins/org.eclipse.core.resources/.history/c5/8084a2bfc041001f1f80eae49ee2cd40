@@ -1,0 +1,19 @@
+package visitoController;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import visitoEntity.Visiterlogin;
+import visitoService.Visitoservice;
+
+public class VisitoController {
+	
+	Visitoservice service1=new Visitoservice();
+
+	
+	@PostMapping("/add/user")
+	public Visiterlogin adduser1(@RequestBody Visiterlogin detai) {
+		
+		return service1.adduser2(detai);
+
+}

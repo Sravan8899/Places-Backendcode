@@ -1,0 +1,62 @@
+package com.visit.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class addnewplacemodel {
+
+	@Id
+	private String placename;
+	private String county;
+	private String zipcode;
+	private String url;
+	
+	
+	public addnewplacemodel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public String getPlacename() {
+		return placename;
+	}
+
+
+	public void setPlacename(String placename) {
+		this.placename = placename;
+	}
+
+
+	public String getCounty() {
+		return county;
+	}
+
+
+	public void setCounty(String county) {
+		this.county = county;
+	}
+
+
+	public String getZipcode() {
+		return zipcode;
+	}
+
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+
+
+	public String getUrl() {
+		return url;
+	}
+
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	
+}

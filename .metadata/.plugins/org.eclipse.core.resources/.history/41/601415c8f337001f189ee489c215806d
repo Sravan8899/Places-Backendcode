@@ -1,0 +1,45 @@
+package Student.marks.stu_containers;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import Student.marks.stu_marks.Student;
+
+@RestController
+public class Containers {
+	
+	List<Student> st =new ArrayList<Student>();
+	
+	//st.add(new Student(101,"red","srit",5600,66,55,48));
+	
+	private List<Student> getstudents()
+	{
+		
+		st.add(new Student(101,"red","srit",5600,66,55,48));
+		st.add(new Student(102,"yellow","crit",4500,77,76,96));
+		st.add(new Student(103,"green","gts",3500,96,95,65));
+		st.add(new Student(104,"pink","svit",5600,66,55,48));
+		return st; 
+	}
+	@RequestMapping("/passlist")
+	public List<Student> getmethod(){
+		
+		 List<Student> stu =getstudents();
+		 
+		 List<Student> passlist= new ArrayList<Student>();
+		 Student stu1=null;
+		 for(int i=0;i<stu.size();i++)
+		 {
+			 stu1=stu.get(i);
+			 
+			 if((stu1.getMaths()>35)&&(stu1.getSci()>35)&&(stu1.getEng()>35))
+			 {
+				 passlist.add(stu1);
+			 }
+		 }
+		return passlist;
+	}		
+}

@@ -1,0 +1,65 @@
+package com.visit.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+import com.visit.model.loginmodel;
+import com.visit.repo.loginrepo;
+
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
+
+@Service
+@CrossOrigin("*")
+public class loginservice {
+	@Autowired
+	loginrepo logrepo;
+	
+	
+	public loginmodel adduser2(loginmodel details) {
+		
+		 return logrepo.save(details);
+		
+		
+	}
+
+	public Boolean gedetails2(String user, String pass) {
+		
+	  String use1=user;
+	  String pass1=pass;
+	
+	Boolean set =false;
+	
+	try {
+		
+	loginmodel temp=logrepo.findById(use1).get();
+	
+	if(use1.contentEquals(temp.getUser1())  && (pass1.contentEquals(temp.getPass1())))
+	{
+		set=true;
+		
+	}
+ }
+	
+	catch(Exception e)
+	{
+		
+	set=false;
+	
+	}
+	if(set)
+	{
+	return true;
+	}
+	else
+	{
+		
+	return false;
+	}
+}
+
+	
+
+	
+}

@@ -1,0 +1,52 @@
+package com.visit.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class loginmodel {
+	
+	@Id
+	  @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private String user1="";
+	private String pass1;
+	
+	
+	public loginmodel() {
+		
+	}
+
+
+	public String getUser1() {
+		return user1;
+	}
+
+
+	public void setUser1(String user1) {
+		this.user1 = user1;
+	}
+
+
+	public String getPass1() {
+		return pass1;
+	}
+
+
+	public void setPass1(String pass1) {
+		this.pass1 = pass1;
+	}
+
+
+	public loginmodel get() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
+
+	
+	
+}

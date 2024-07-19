@@ -1,0 +1,5 @@
+package com.visit.repo;
+
+public interface addplacerepo {
+
+}

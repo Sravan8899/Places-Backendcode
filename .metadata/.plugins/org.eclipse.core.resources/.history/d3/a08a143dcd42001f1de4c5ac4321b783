@@ -1,0 +1,46 @@
+package com.visit.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.visit.model.loginmodel;
+import com.visit.repo.loginrepo;
+
+@Service
+public class loginservice {
+	@Autowired
+	loginrepo logrepo;
+
+	public loginmodel adduser2(loginmodel details) {
+		// TODO Auto-generated method stub
+		return logrepo.save(details);
+	}
+
+	public boolean gedetails2(loginmodel ver1) {
+		
+	  String use1=ver1.getUser1();
+	  String pass1=ver1.getPass1();
+	  	
+	loginmodel temp=logrepo.findById(use1).get();
+	
+	Boolean set =false;
+	
+	try {
+		
+	if(use1.contentEquals(temp.getUser1())  && (pass1.contentEquals(temp.getPass1())))
+	{
+		return set=true;
+		
+	}
+ }
+	
+	catch(Exception e)
+	{
+		
+	return set=false;
+	
+	}
+
+
+}
+}

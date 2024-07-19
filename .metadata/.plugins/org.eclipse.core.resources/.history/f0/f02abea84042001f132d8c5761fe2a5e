@@ -1,0 +1,21 @@
+package com.visit.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.visit.model.loginmodel;
+import com.visit.repo.loginrepo;
+
+@Service
+public class loginservice {
+	@Autowired
+	loginrepo logrepo;
+
+	public loginmodel adduser2(loginmodel details) {
+		// TODO Auto-generated method stub
+		return logrepo.save();
+	}
+	
+	
+
+}

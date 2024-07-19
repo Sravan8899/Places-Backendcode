@@ -1,0 +1,58 @@
+package student.marks.marks;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+@RestController
+public class Stucontroller {
+	
+	List<Student> student1=new ArrayList<Student>();
+   private List<Student> getstudentlist()
+   {
+	   student1.add(new Student(101,"red","cbit",48000,55,32,56));
+	   student1.add(new Student(102,"yellow","srit",58000,45,65,78));
+	   student1.add(new Student(103,"pink","svit",65000,75,56,76));
+	   student1.add(new Student(104,"green","crit",74000,65,87,96));
+       return student1;	   
+    }
+   
+   @RequestMapping("/mtz/")
+   public List<Student> getpasslist(@RequestParam String sub)
+   {
+	   List<Student> student2 = getstudentlist();
+	   
+	   List<Student> pass= new ArrayList<Student>();
+	   
+			  Student stu = null;
+			  for(int i=0;i<student2.size();i++)
+    {     
+	     stu=student2.get(i);
+	     if(sub.equalsIgnoreCase("maths")) {
+	    	 if(stu.getMaths()>35)
+	    	 {
+	    		 pass.add(stu); 
+	    	 }
+	    	 
+	     }
+	     if(sub.equalsIgnoreCase("Sci")) {
+	    	 if(stu.getSci()>35)
+	    	 {
+	    		 pass.add(stu);
+	    	 }
+	     }
+	     if(sub.equalsIgnoreCase("Eng")) {
+	    	 if(stu.getEng()>35)
+	    	 {
+	    		 pass.add(stu);
+	    	 }
+	     }
+  
+     }
+	  return pass; 
+	   
+   }
+   
+}
